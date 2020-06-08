@@ -7,25 +7,31 @@ public class AIEnemyController : MonoBehaviour
 {
     public float lookRadius = 10f;
 
-    Transform target;
+    Transform SecondaryTarget;
     NavMeshAgent agent;
+
+    public Transform MainTarget;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        target = PlayerManager.instance.Player.transform;
+        SecondaryTarget = PlayerManager.instance.Player.transform;
+        agent.SetDestination(MainTarget.position);
     }
 
     // Update is called once per frame
     void Update()
     {
-        float distance = Vector3.Distance(target.position, transform.position);
+        float distance = Vector3.Distance(SecondaryTarget.position, transform.position);
         if (distance <= lookRadius)
         {
-            agent.SetDestination(target.position);
+            agent.SetDestination(SecondaryTarget.position);
         }
-
+        else
+        {
+            agent.SetDestination(MainTarget.position);
+        }
     }
 
     private void OnDrawGizmos()
