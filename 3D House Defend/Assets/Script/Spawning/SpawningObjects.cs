@@ -48,6 +48,8 @@ public class SpawningObjects : MonoBehaviour
     Vector3 SpawnPointStartPosition;
     bool SpawningCoorutineIsRunning = false;
 
+    public List<GameObject> SpawnedObjects;
+
     //  public string choice;
 
     void Awake()
@@ -167,9 +169,11 @@ public class SpawningObjects : MonoBehaviour
         {
             SpawnPoint = PlaceToSpawn = PlaceToSpawnObjects.transform.position;           
         }
-        if (SpawnOverTime && SpawningCoorutineIsRunning == false && CurrentlySpawnedObjects < SpawnedGameObjectsLimit || SpawnedGameObjectsHAVELimit == false)
-            StartCoroutine(SpawnObjectsOverTime());    
-        
+        if (SpawnOverTime && SpawningCoorutineIsRunning == false && CurrentlySpawnedObjects < SpawnedGameObjectsLimit ||
+            SpawnedGameObjectsHAVELimit == false && SpawningCoorutineIsRunning == false)
+            StartCoroutine(SpawnObjectsOverTime());
+
+        CurrentlySpawnedObjects = SpawnedObjects.Count;
         //need to add funtion to always push wariables of "SpawnedOjects" to the top of the array?
     }
 
@@ -190,20 +194,23 @@ public class SpawningObjects : MonoBehaviour
             //{
             //  Instantiate(ObjectsToSpawn[i].Object, SpawnPoint, Quaternion.identity);    
             //}
-            var Control = ObjectsToSpawn[Random.Range(0, 2)];
+            var Control = ObjectsToSpawn[Random.Range(0, ObjectsToSpawn.Length-1)];
             var Spawned = Instantiate(Control.Object, SpawnPoint, Quaternion.identity);
             var LifeTimeOfSpawnedObject = Control.LifeTime;
+            SpawnedObjects.Add(Spawned);
+
+
             if (IsObjectsHaveALifeTime && SpawnedGameObjectsHAVELimit)
             {
                 //SpawnedObjects[CurrentlySpawnedObjects] = Spawned;  //way to stroe all spawned objects 
                 //StartCoroutine(DestroyObjectAfterLifeTimeEnds(SpawnedObjects[CurrentlySpawnedObjects], LifeTimeOfSpawnedObject));// and destroy them after "Life time" ends
                 StartCoroutine(DestroyObjectAfterLifeTimeEnds(Spawned, LifeTimeOfSpawnedObject)); 
-                CurrentlySpawnedObjects++;
+                //CurrentlySpawnedObjects++;
             }
             else if (SpawnedGameObjectsHAVELimit)
             {
                // SpawnedObjects[CurrentlySpawnedObjects] = Spawned;  //way to stroe all spawned objects              
-                CurrentlySpawnedObjects++;
+                //CurrentlySpawnedObjects++;
             }
             else if (IsObjectsHaveALifeTime)
             {
@@ -225,6 +232,7 @@ public class SpawningObjects : MonoBehaviour
         if (IsObjectsHaveALifeTime)
         {
             yield return new WaitForSeconds(SpawnedGameObjectsLifeTime);
+            SpawnedObjects.Remove(spawnedObject);
             Destroy(spawnedObject);
             if (SpawnedGameObjectsHAVELimit)
             {
@@ -247,6 +255,7 @@ public class SpawningObjects : MonoBehaviour
             {
                 yield return new WaitForSeconds(LifeTime);
             }
+            SpawnedObjects.Remove(spawnedObject);
             Destroy(spawnedObject);
             if (SpawnedGameObjectsHAVELimit)
             {
