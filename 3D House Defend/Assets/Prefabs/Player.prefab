@@ -446,6 +446,7 @@ GameObject:
   - component: {fileID: 4768930658720627823}
   - component: {fileID: 4768930658720627816}
   - component: {fileID: 4768930658720627817}
+  - component: {fileID: 3224129008574620908}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -527,3 +528,21 @@ MonoBehaviour:
   Fly: 0
   DoubleJump: 0
   timeBetweenTheJumps: 0.1
+--- !u!114 &3224129008574620908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4768930658720627799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbc1c165972cc5745a74e349683984ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 100
+  MaxEnergy: 200
+  CurrentHealth: 0
+  CurrentEnergy: 0
+  MelleAttackPower: 2
+  RangeAttackPower: 1

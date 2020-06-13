@@ -194,7 +194,7 @@ public class SpawningObjects : MonoBehaviour
             //{
             //  Instantiate(ObjectsToSpawn[i].Object, SpawnPoint, Quaternion.identity);    
             //}
-            var Control = ObjectsToSpawn[Random.Range(0, ObjectsToSpawn.Length-1)];
+            var Control = ObjectsToSpawn[Random.Range(0, ObjectsToSpawn.Length)];
             var Spawned = Instantiate(Control.Object, SpawnPoint, Quaternion.identity);
             var LifeTimeOfSpawnedObject = Control.LifeTime;
             SpawnedObjects.Add(Spawned);

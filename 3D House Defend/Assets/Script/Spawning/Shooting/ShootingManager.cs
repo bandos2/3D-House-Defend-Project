@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class ShootingManager : MonoBehaviour
 {
-    public ShootingAmmo[] AllPosibleBulletsType;
-    public ShootingAmmo CurrentTypeOfAmmo;
+    public   ShootingAmmo[] AllPosibleBulletsType;//work on statics variables
+    public  ShootingAmmo CurrentTypeOfAmmo;//may be at all make other script and seperare all enemys attacs
 
 
     public int CurrentBulletsCount;
     public int MaxBullets;
-    public float ShootingSpeed;
+    public  float ShootingSpeed;
     public float BulletLifeTime;
 
-    public string LastHitInfo;
+    public string LastHitInfo; 
 
-    private float NextTimeForShooting = 0f;
+    private  float NextTimeForShooting = 0f;
 
     private void Awake()
     {
@@ -44,6 +44,20 @@ public class ShootingManager : MonoBehaviour
         ShootingSpeed = CurrentTypeOfAmmo.ShootingSpeed;
         BulletLifeTime = CurrentTypeOfAmmo.BulletLifeTime;
     }
+
+    public void ShootAtTarget(Transform From,Transform Target)
+    {
+        if (Time.time < NextTimeForShooting)
+            return;
+        else
+        {
+            NextTimeForShooting = Time.time + CurrentTypeOfAmmo.TimeBetweenShoots;
+            GameObject Bullet = Instantiate(CurrentTypeOfAmmo.ShootingAmmoType, From.position, Quaternion.identity);
+            Bullet.GetComponentInChildren<Rigidbody>().AddForce(Target.position * ShootingSpeed);
+        }
+    }
+
+
     public void Shoot() //Object to shoot, 
     {
         Debug.Log(CurrentBulletsCount);

@@ -286,10 +286,10 @@ GameObject:
   - component: {fileID: 1241341595806368282}
   - component: {fileID: 1241341595806368283}
   - component: {fileID: 1241341595806368284}
-  - component: {fileID: 5193530088063018710}
+  - component: {fileID: 4234954011389209765}
   - component: {fileID: 7269374233176349410}
   m_Layer: 0
-  m_Name: MelleEnemy
+  m_Name: Rangenemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -335,7 +335,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1f8c5614d98a50744913e8af20620169, type: 2}
+  - {fileID: 2100000, guid: 8865c8b042c9f1b4896d2f9c2aa6881b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -378,11 +378,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1
-  m_Speed: 5
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0.1
+  m_StoppingDistance: 15
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -390,7 +390,7 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &5193530088063018710
+--- !u!114 &4234954011389209765
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -399,11 +399,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1241341595806368286}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb0f6713d1e3575419954c763dcf235c, type: 3}
+  m_Script: {fileID: 11500000, guid: b097ab10bc0834a46ad3514036c29491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookRadius: 10
+  LookRadius: 30
+  ShootRadius: 20
   MainTarget: {fileID: 0}
+  ShootingAmmoType: {fileID: 7209059222043026483, guid: fc85efccabe74bc4492eeeeec265594b,
+    type: 3}
+  TimeBetweenShoots: 3
+  ShootingSpeed: 100
+  BulletLifeTime: 3
 --- !u!114 &7269374233176349410
 MonoBehaviour:
   m_ObjectHideFlags: 0
