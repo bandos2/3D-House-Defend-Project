@@ -9,18 +9,23 @@ public class PlayerStats : MonoBehaviour
     [Range(100f, 1000f)]
     public int MaxEnergy;
 
-    public int CurrentHealth;
-    public int CurrentEnergy;
-
     [Range(1f, 100f)]
     public int MelleAttackPower;
     [Range(1f, 100f)]
     public int RangeAttackPower;
 
+    [Range(0f, 50f)]
+    public int Armor;
+
+    public int CurrentHealth;
+    public int CurrentArmor;
+    public int CurrentEnergy;
+
     void Start()
     {
         CurrentHealth = MaxHealth;
         CurrentEnergy = MaxEnergy;
+        CurrentArmor = Armor;
     }
 
 
@@ -28,4 +33,37 @@ public class PlayerStats : MonoBehaviour
     {
         
     }
+
+    public void ResiveDamage(int Amount)
+    {
+        int ActualDamageRecive = Amount - Armor;
+        if (ActualDamageRecive > 0)
+        {
+            CurrentHealth -= ActualDamageRecive;
+        }
+        else
+            return;
+    }
+
+    public void RestoreHealth(int Amount)
+    {
+        if (CurrentHealth < MaxHealth)
+        {
+            CurrentHealth += Amount;
+        }
+        else
+            return;
+    }
+
+    public void RestoreEnergy(int Amount)
+    {
+        if (CurrentEnergy < MaxEnergy)
+        {
+            CurrentEnergy += Amount;
+        }
+        else
+            return;
+    }
+
+
 }

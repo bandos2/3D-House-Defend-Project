@@ -410,6 +410,7 @@ MonoBehaviour:
   TimeBetweenShoots: 3
   ShootingSpeed: 100
   BulletLifeTime: 3
+  ShootingDamage: 1
 --- !u!114 &7269374233176349410
 MonoBehaviour:
   m_ObjectHideFlags: 0

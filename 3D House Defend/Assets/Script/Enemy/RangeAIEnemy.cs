@@ -25,6 +25,9 @@ public class RangeAIEnemy : MonoBehaviour
     [Range(1f, 5f)]
     public float BulletLifeTime;
 
+    [Range(1f, 5f)]
+    public int ShootingDamage;
+
 
     float NextTimeForShooting = 0f;
 
@@ -79,6 +82,7 @@ public class RangeAIEnemy : MonoBehaviour
             NextTimeForShooting = Time.time + TimeBetweenShoots;
             Vector3 UpdatedFrom = new Vector3(From.position.x, From.position.y + 2f, From.position.z); // make enemy shoot frome above the head
             GameObject Bullet = Instantiate(ShootingAmmoType, UpdatedFrom, Quaternion.identity);
+            Bullet.GetComponentInChildren<Bullet>().SetBulletDamage(ShootingDamage);
             Bullet.GetComponentInChildren<Rigidbody>().AddForce((Target.position - this.transform.position) * ShootingSpeed); //vector to the target * trust
             StartCoroutine(DestroyBullet(Bullet));
         }
