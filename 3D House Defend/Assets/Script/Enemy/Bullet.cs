@@ -19,4 +19,10 @@ public class Bullet : MonoBehaviour
             collision.gameObject.GetComponentInChildren<PlayerStats>().ResiveDamage(ThisBulletDamage);
         }
     }
+
+    public IEnumerator DestroyBullet(float LifeTime) //destroy after life time ends
+    {
+        yield return new WaitForSeconds(LifeTime);
+        Destroy(this.gameObject);
+    }
 }

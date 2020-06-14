@@ -2127,7 +2127,7 @@ PrefabInstance:
     - target: {fileID: 1241341595806368286, guid: ec41a6d3cf651654885746d28385acc8,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1241341595806368280, guid: ec41a6d3cf651654885746d28385acc8,
         type: 3}
@@ -2189,6 +2189,11 @@ PrefabInstance:
       propertyPath: MainTarget
       value: 
       objectReference: {fileID: 1957773132}
+    - target: {fileID: 7730742005318776023, guid: ec41a6d3cf651654885746d28385acc8,
+        type: 3}
+      propertyPath: MaxHealth
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec41a6d3cf651654885746d28385acc8, type: 3}
 --- !u!1001 &4768930658062876491
@@ -2272,6 +2277,46 @@ PrefabInstance:
         type: 3}
       propertyPath: jumpHeight
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2210396131261912291, guid: 883178825e3216e4885a876a72fa8063,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109680300628539017, guid: 883178825e3216e4885a876a72fa8063,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2245103281511861527, guid: 883178825e3216e4885a876a72fa8063,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2245103281511861527, guid: 883178825e3216e4885a876a72fa8063,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2245103281511861527, guid: 883178825e3216e4885a876a72fa8063,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2245103281511861527, guid: 883178825e3216e4885a876a72fa8063,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2245103281511861527, guid: 883178825e3216e4885a876a72fa8063,
+        type: 3}
+      propertyPath: m_Mass
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2245103281511861527, guid: 883178825e3216e4885a876a72fa8063,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 883178825e3216e4885a876a72fa8063, type: 3}

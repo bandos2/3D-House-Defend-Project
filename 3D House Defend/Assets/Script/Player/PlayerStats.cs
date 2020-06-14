@@ -17,9 +17,15 @@ public class PlayerStats : MonoBehaviour
     [Range(0f, 50f)]
     public int Armor;
 
+    public GameObject CurrentWeapon;
+
     public int CurrentHealth;
     public int CurrentArmor;
     public int CurrentEnergy;
+
+    public int Realdamage;
+
+    int WeaponDamage;
 
     void Start()
     {
@@ -31,7 +37,8 @@ public class PlayerStats : MonoBehaviour
 
     void Update()
     {
-        
+        WeaponDamage = CurrentWeapon.GetComponentInChildren<Weapon>().WeaponDamage;
+        Realdamage = MelleAttackPower + WeaponDamage;
     }
 
     public void ResiveDamage(int Amount)
@@ -63,6 +70,11 @@ public class PlayerStats : MonoBehaviour
         }
         else
             return;
+    }
+
+    public void ChangeWeapon()
+    {
+
     }
 
 

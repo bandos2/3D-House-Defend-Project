@@ -31,6 +31,8 @@ public class RangeAIEnemy : MonoBehaviour
 
     float NextTimeForShooting = 0f;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,7 +74,7 @@ public class RangeAIEnemy : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, LookRadius);
     }
 
-    public void ShootAtTarget(Transform From, Transform Target) //
+    public void ShootAtTarget(Transform From, Transform Target) 
     {
       
         if (Time.time < NextTimeForShooting)
@@ -84,13 +86,9 @@ public class RangeAIEnemy : MonoBehaviour
             GameObject Bullet = Instantiate(ShootingAmmoType, UpdatedFrom, Quaternion.identity);
             Bullet.GetComponentInChildren<Bullet>().SetBulletDamage(ShootingDamage);
             Bullet.GetComponentInChildren<Rigidbody>().AddForce((Target.position - this.transform.position) * ShootingSpeed); //vector to the target * trust
-            StartCoroutine(DestroyBullet(Bullet));
+            StartCoroutine(Bullet.GetComponentInChildren<Bullet>().DestroyBullet(BulletLifeTime));
         }
     }
 
-    IEnumerator DestroyBullet(GameObject spawnedObject) //destroy after manually seted life time ends
-    {
-        yield return new WaitForSeconds(BulletLifeTime);
-        Destroy(spawnedObject);
-    }
+
 }
