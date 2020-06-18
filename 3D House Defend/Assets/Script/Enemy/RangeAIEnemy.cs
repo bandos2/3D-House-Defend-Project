@@ -85,8 +85,9 @@ public class RangeAIEnemy : MonoBehaviour
             Vector3 UpdatedFrom = new Vector3(From.position.x, From.position.y + 2f, From.position.z); // make enemy shoot frome above the head
             GameObject Bullet = Instantiate(ShootingAmmoType, UpdatedFrom, Quaternion.identity);
             Bullet.GetComponentInChildren<Bullet>().SetBulletDamage(ShootingDamage);
+            Bullet.GetComponentInChildren<Bullet>().SetBulletLifeTime(BulletLifeTime);
             Bullet.GetComponentInChildren<Rigidbody>().AddForce((Target.position - this.transform.position) * ShootingSpeed); //vector to the target * trust
-            StartCoroutine(Bullet.GetComponentInChildren<Bullet>().DestroyBullet(BulletLifeTime));
+            //StartCoroutine(Bullet.GetComponentInChildren<Bullet>().DestroyBullet(BulletLifeTime));
         }
     }
 

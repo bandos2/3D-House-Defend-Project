@@ -122,3 +122,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ThisBulletDamage: 0
+  BulletLifeTime: 3

@@ -45,7 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Owner: {fileID: 0}
-  image: {fileID: 3114890239693730290}
+  image1: {fileID: 3114890239693730290}
+  image2: {fileID: 7112414540117313706}
+  can: {fileID: 1427976929934835847}
 --- !u!1 &1161716625809515551
 GameObject:
   m_ObjectHideFlags: 0
