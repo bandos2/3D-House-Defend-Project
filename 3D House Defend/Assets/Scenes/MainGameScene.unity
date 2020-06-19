@@ -2235,7 +2235,7 @@ PrefabInstance:
     - target: {fileID: 1241341595806368286, guid: ec41a6d3cf651654885746d28385acc8,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1241341595806368280, guid: ec41a6d3cf651654885746d28385acc8,
         type: 3}
@@ -2302,6 +2302,16 @@ PrefabInstance:
       propertyPath: MaxHealth
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1241341595806368284, guid: ec41a6d3cf651654885746d28385acc8,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193530088063018710, guid: ec41a6d3cf651654885746d28385acc8,
+        type: 3}
+      propertyPath: AttackAnimation
+      value: 
+      objectReference: {fileID: 7400000, guid: 4b3109dc99cbe734a8f9400b87897146, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec41a6d3cf651654885746d28385acc8, type: 3}
 --- !u!1001 &4768930658062876491
