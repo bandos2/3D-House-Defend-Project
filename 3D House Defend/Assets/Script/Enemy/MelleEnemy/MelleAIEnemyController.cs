@@ -14,6 +14,7 @@ public class MelleAIEnemyController : MonoBehaviour
     NavMeshAgent agent;
 
     public Transform MainTarget;
+    public GameObject m_MainTarget;
 
     public Animator Anim;
     public Animation Anima;
@@ -46,7 +47,7 @@ public class MelleAIEnemyController : MonoBehaviour
     void Update()
     {
 
-        float distance = Vector3.Distance(SecondaryTarget.position, transform.position);
+        float distance = Vector3.Distance(SecondaryTarget.position, transform.position);      
 
         if (distance <= AttackRadius)
         {
